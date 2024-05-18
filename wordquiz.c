@@ -75,19 +75,19 @@ void print_menu() {
 
 int get_command() {
 	int cmd;
-	int validity;
+	int validity; // Variables to determine valid return value
 
 	while(1) 
 	{
 		printf(">");
-		validity = scanf("%d", &cmd);
+		validity = scanf("%d", &cmd); // 1 if input is valid, 0 otherwise
 
-		if (validity != 1 || cmd > 4 || cmd < 1) 
+		if (validity != 1 || cmd > 4 || cmd < 1) // Conditions where the value to return is invalid
 		{
 			printf("\nPlease enter a number between 1 and 4.\n");
 			print_menu();
-			while(getchar()!= '\n');
-			continue; 
+			while(getchar()!= '\n'); // clear buffer
+			continue; // Move to the beginning of while statement
 		}
 		break;
 	}
