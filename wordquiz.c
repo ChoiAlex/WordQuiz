@@ -74,11 +74,25 @@ void print_menu() {
 }
 
 int get_command() {
-	int cmd ;
+	int cmd;
+	int validity;
 
-	printf(">") ;
-	scanf("%d", &cmd) ;
-	return cmd ;
+	while(1) 
+	{
+		printf(">");
+		validity = scanf("%d", &cmd);
+
+		if (validity != 1 || cmd > 4 || cmd < 1) 
+		{
+			printf("\nPlease enter a number between 1 and 4.\n");
+			print_menu();
+			while(getchar()!= '\n');
+			continue; 
+		}
+		break;
+	}
+
+	return cmd;
 }
 
 void list_wordbooks ()
